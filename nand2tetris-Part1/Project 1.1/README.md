@@ -1,2 +1,4 @@
-![[Not.png|700]]
-![[Or.png|700]]
+Not Gate
+![](Not.png)
+Or Gate
+![](Or.png)
