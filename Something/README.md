@@ -12,7 +12,8 @@ Computer programs rely on **variables**, **arrays**, and **objects** to manage a
 To address this challenge, we introduce a **clock** and an **elementary time-dependent logic gate** known as the **data flip-flop (DFF)**. The #DFF can transition between **two stable states**, representing 0 and 1, making it the foundational building block for all memory devices. Despite its central role, DFFs often remain **low-profile**. Unlike **registers**, **RAM** **devices**, and **counters**, which have **prominent roles** in computer architecture, DFFs are used implicitly as essential components deeply embedded within other memory devices.
 
 The critical role of the DFF is evident in **Figure 3.1**, where it forms the basis of the memory hierarchy we are about to construct. We will demonstrate how DFFs can create **1-bit registers** and how multiple registers can be combined to form **n-bit registers**. Additionally, we will develop a **RAM** device containing numerous registers and establish a method for addressing and instantaneously accessing any selected register from the RAM.
-![[Screenshot 2023-09-20 at 12.32.32 PM.png|700]]
+
+![][Screenshot 2023-09-20 at 12.32.32 PM.png|700]
 Before setting out to build these chips, though, we’ll present a methodology and tools that enable modeling the progression of time and maintaining state over time.
 
 ## Sequential Logic
