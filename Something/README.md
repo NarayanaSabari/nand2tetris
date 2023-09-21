@@ -25,7 +25,7 @@ In chapters 1 and 2, we focused on chips rooted in classical logic, which is not
 In **Nand to Tetris** so far, we've assumed that chips **respond to their inputs instantaneously**. For instance, you input 7, 2, and "subtract" into the **ALU**, and it immediately outputs 5. However, in reality, there are always **delays in the outputs for at least two reasons**. First, the inputs of the **chips don't magically appear**; they come from the **outputs of other chips**, and this travel takes time. Second, the **computations chips perform also take time**, and the **more complex a chip's logic**, the longer it takes for the chip's **outputs to be fully generated**.
 
 Therefore, time is a crucial factor that needs to be considered. In Figure 3.2, time is often depicted as a continuous, forward-moving arrow. However, this continuous view of time is **too abstract for computer scientists**. Instead, we prefer to break **time into discrete**, **fixed-length intervals** called **cycles**. These cycles are unable to divide or separate, and changes in the system only occur during transitions between cycles. Within a cycle, the system remains static.
-![](Screenshot 2023-09-20 at 2.17.10 PM.png)
+![](time.png)
 The world is always changing, but when we work with computers, we choose to look at time in chunks. We only care about what's happening at the end of each chunk of time, and we don't pay attention to what's happening in between. This way of looking at time helps in two ways when designing computer systems. First, it helps us deal with the **unpredictability of communication** and **processing delays**. Second, it helps us **coordinate the actions of different parts** of a computer system.
 
 For example, imagine we're using a "**Not gate**" in a computer, (**Fig 3.2**). When we give it the number 1 as input, it takes a little time to process and give us an output of 0. But because our time chunks are designed to be longer than this delay, when we check the output at the end of a chunk, it already shows 0. We don't see the delay; it seems like the gate instantly turned 1 into 0. To make this work, we need to make sure our time chunks are long enough to cover any possible delays in the system. But we also want them to be as **short as possible** to make the computer **faster**.
@@ -47,14 +47,14 @@ Much like **Nand** gates, **DFF** gates are an essential part of the computer's 
 At the end of each clock cycle, all the #DFF gates in the computer update their **outputs** **based on the inputs from the previous cycle**. However, between these clock cycles, the #DFF gates are "latched," meaning any changes in their inputs don't immediately affect their outputs. This process happens many times per second, depending on the computer's **clock frequency**.
 
 To manage this **time-dependent operation**, hardware implementations use a **dedicated clock bus** that distributes the master clock signal to all the #DFF gates simultaneously. Hardware simulators achieve the same effect through software emulation. Specifically, the Nand to Tetris hardware simulator provides a **clock icon** that lets users manually advance the clock and also offers **"tick" and "tock"** commands that can be scripted for testing purposes.
-![](Screenshot 2023-09-21 at 10.46.08 AM.png)
+![](dffmux.png)
 
 ### Combinational and Sequential Logic
 
 In the previous chapters (1 and 2), all the chips we developed, from basic logic gates to the **ALU**, were designed to react only to changes happening in the **current clock cycle**. These chips are called "**time-independent**" or "**combinational**" chips. The term "**combinational**" refers to the fact that these chips respond solely to different combinations of input values without considering the passage of time.
 
 On the other hand, there are chips designed to respond not only to changes in the **current time** unit but also to changes that occurred in **previous time units**. These are known as "**sequential**" or "**clocked**" chips. The core component of sequential logic is the DFF (**data flip-flop**), and any chip that includes a DFF, either directly or indirectly, is considered sequential. Figure 3.4 illustrates a typical configuration of sequential logic.
-![](Screenshot 2023-09-21 at 9.15.20 AM.png)
+![](seq.png)
 In this configuration, you'll find one or more chips that include DFF components, either **directly** or **indirectly**. As depicted in the figure, these sequential chips may also interact with combinational chips. The feedback loop in sequential chips allows them to take into account inputs and outputs from the **previous time unit**. In combinational chips, where time isn't considered, introducing **feedback loops** can be problematic. It could create a situation where the chip's output depends on its input, which in turn depends on the output, creating a circular loop. However, this issue can be resolved by using a DFF gate in the feedback loop. The DFF introduces a natural time delay, ensuring that the output at time "**t**" doesn't depend on itself but rather on the output at time "**t-1.**"
 
 Imagine you're using a computer, and you want it to add two numbers, let's call them **x** and **y**. But here's the catch: x is stored in one part of the computer, and y is stored in a different part, a bit far away. Now, because of how computer parts are placed and how signals travel, it might take a bit longer for the computer to get the information about x and y. So, when the computer starts adding them up, it might not get the **right answer immediately**. It's like trying to listen to two musicians play in sync when they're in different rooms. But here's the clever part: In a computer, we use these **time snapshots** called **cycles**. We make sure that one cycle is long enough for the information (x and y) to travel from one part of the computer to another and for the computer to finish its calculations.
@@ -91,7 +91,7 @@ This simple device might not seem like much, but it's really important because w
 4. **How Register Works:** Register is like a bigger box with 16 slots. You can put 0s and 1s in these slots. You can also tell it to remember what you put in. And when you want to know what's in each slot, it can tell you.
    So, Bit remembers just one number, while Register can remember up to 16 numbers. That's what makes them useful in a computer.
 
-![](Screenshot 2023-09-21 at 9.32.08 AM.png)
+![](reg.png)
 **Single-Bit Register (Bit):** Think of it as a small box that can remember one number (0 or 1). It can do two things: - You can put a number (0 or 1) inside it. - You can tell it to remember what's inside.
 As long as you don't tell it to change, it will keep remembering the same number.
 
