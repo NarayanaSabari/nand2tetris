@@ -14,7 +14,7 @@ To address this challenge, we introduce a **clock** and an **elementary time-dep
 
 The critical role of the DFF is evident in **Figure 3.1**, where it forms the basis of the memory hierarchy we are about to construct. We will demonstrate how DFFs can create **1-bit registers** and how multiple registers can be combined to form **n-bit registers**. Additionally, we will develop a **RAM** device containing numerous registers and establish a method for addressing and instantaneously accessing any selected register from the RAM.
 
-![](Screenshot 2023-09-20 at 12.32.32 PM.png)
+![](DFF.png)
 Before setting out to build these chips, though, we’ll present a methodology and tools that enable modeling the progression of time and maintaining state over time.
 
 ## Sequential Logic
