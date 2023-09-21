@@ -1,0 +1,29 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/b/RAM4K.hdl
+
+/**
+ * Memory of 4K registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM4K {
+    IN in[16], load, address[12];
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+DMux8Way(in=load, sel[0]=address[9], sel[1]=address[10], sel[2]=address[11], a=D0, b=D1, c=D2, d=D3, e=D4, f=D5, g=D6, h=D7);
+RAM512(in=in, load=D0, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out=M0);
+RAM512(in=in, load=D1, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M1);
+RAM512(in=in, load=D2, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M2);
+RAM512(in=in, load=D3, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M3);
+RAM512(in=in, load=D4, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M4);
+RAM512(in=in, load=D5, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M5);
+RAM512(in=in, load=D6, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M6);
+RAM512(in=in, load=D7, address[0]=address[0], address[1]=address[1], address[2]=address[2],address[3]=address[3], address[4]=address[4], address[5]=address[5],address[6]=address[6], address[7]=address[7], address[8]=address[8], out= M7);
+Mux8Way16(a=M0, b=M1, c=M2, d=M3, e=M4, f=M5, g=M6, h=M7, sel[0]=address[9], sel[1]=address[10], sel[2]=address[11], out=out);
+}
