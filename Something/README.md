@@ -37,7 +37,7 @@ In each part of the computer, this signal helps decide when to change to a new s
 ### Flip-Flops
 
 Memory chips are created to hold onto or store information for a period. To make this storing process happen, we use small components known as **flip-flop gates**. There are various types of these gates, and in the Nand to Tetris project, we specifically use a gate called a **data flip-flop** or **DFF**. This #DFF has a setup with a single-bit data input and a single-bit data output, as illustrated at the top of Figure 3.3.
-![[Screenshot 2023-09-20 at 2.41.56 PM.png|700]]
+![](flip.png)
 Additionally, the **DFF** includes a clock input that receives its signal from the **master clock**. When you combine the data input and the clock input, it allows the **DFF** to carry out a straightforward time-based action, where the output at the current time, out(t), equals the input value at the previous time, in(t-1).
 
 Here, "**in**" and "**out**" represent the values going into and coming out of the gate. "**t**" stands for the **current time unit**, and we'll use the terms "**time unit**" and "**cycle**" interchangeably from now on. Don't concern yourself with the technical details of how this behavior is achieved. For now, just notice that at the conclusion of each **time unit**, the DFF provides the output that corresponds to the **input value** from the **previous time unit**.
