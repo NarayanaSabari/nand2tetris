@@ -18,8 +18,7 @@ Agenda:
 Disscuss how can we make Sequential Logic and Flipflops / Memory units and counters more engaging and understandable
 
 Meeting Discussion:
-
-Discussed whats the problem with this concepts and decided to create a student contribution lesson for each topics which should be more engaging and understandable.
+So according to the servey taken from squad 46 and 56, folks felt hard to study some topics like Sequential Logic and Flipflops / Memory units, we Discussed whats the problem with this concepts and decided to create a student contribution lesson for each topics which should be more engaging and understandable.
 
 Next Step:
 Tmr we will come with a lesson for sequential logic and flipflops and review it.
