@@ -4,4 +4,4 @@
 
 ## Reactangle
 
-![Alt text](rectange.png)
+![Alt text](rectangle.png)
